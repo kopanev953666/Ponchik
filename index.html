@@ -9,13 +9,1444 @@
     <meta property="og:description" content="Шуточный лендинг о великом искусстве пончиков. Никаких заказов и звонков, только сочные фото и чистая философия углеводов." />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Standalone & Robust CSS for Pure HTML / Static Server Compatibility -->
+    <style>
+      :root {
+        --bg-color: #fafaf9;
+        --text-primary: #1c1917;
+        --text-secondary: #57534e;
+        --text-muted: #78716c;
+        --border-color: #e7e5e4;
+        --card-bg: #ffffff;
+        --accent-amber: #f59e0b;
+        --accent-light: #fef3c7;
+        --accent-dark: #b45309;
+      }
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+        font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+        background-color: var(--bg-color);
+        color: var(--text-primary);
+        line-height: 1.5;
+      }
+      body {
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      h1, h2, h3, .font-title {
+        font-family: 'Playfair Display', Georgia, serif;
+      }
+      .container {
+        width: 100%;
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+      
+      /* Header */
+      header.topbar {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        background: rgba(250, 250, 249, 0.94);
+        backdrop-filter: blur(10px);
+        border-bottom: 1px solid var(--border-color);
+        height: 64px;
+        display: flex;
+        align-items: center;
+      }
+      .topbar-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+      }
+      .wordmark {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        text-decoration: none;
+        letter-spacing: -0.02em;
+        transition: color 0.2s;
+      }
+      .wordmark:hover {
+        color: var(--accent-dark);
+      }
+      nav.nav-links {
+        display: none;
+        gap: 1.75rem;
+      }
+      @media (min-width: 768px) {
+        nav.nav-links {
+          display: flex;
+        }
+      }
+      nav.nav-links a {
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--text-secondary);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      nav.nav-links a:hover {
+        color: var(--text-primary);
+      }
+      .btn-random {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        background: #fde68a;
+        color: var(--text-primary);
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.1s;
+      }
+      .btn-random:hover {
+        background: #fcd34d;
+      }
+      .btn-random:active {
+        transform: scale(0.96);
+      }
+
+      /* Hero Section */
+      .hero {
+        padding: 4rem 0 5rem;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        align-items: center;
+      }
+      @media (min-width: 1024px) {
+        .hero-grid {
+          grid-template-columns: 1.2fr 0.8fr;
+        }
+      }
+      .kicker {
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-weight: 700;
+        color: var(--accent-dark);
+        margin-bottom: 0.75rem;
+      }
+      .hero-title {
+        font-size: 2.5rem;
+        line-height: 1.15;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 1.25rem;
+      }
+      @media (min-width: 640px) {
+        .hero-title {
+          font-size: 3.25rem;
+        }
+      }
+      .hero-desc {
+        font-size: 1.125rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+      }
+      .meta-line {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+        align-items: center;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-color);
+        margin-bottom: 2rem;
+      }
+      .cta-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+      }
+      .btn-primary {
+        padding: 0.85rem 1.5rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        background: #1c1917;
+        color: #fafaf9;
+        text-decoration: none;
+        border-radius: 0.75rem;
+        transition: background 0.2s;
+        border: none;
+        cursor: pointer;
+      }
+      .btn-primary:hover {
+        background: #292524;
+      }
+      .btn-secondary {
+        padding: 0.85rem 1.5rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        background: #e7e5e4;
+        color: var(--text-primary);
+        text-decoration: none;
+        border-radius: 0.75rem;
+        transition: background 0.2s;
+        border: none;
+        cursor: pointer;
+      }
+      .btn-secondary:hover {
+        background: #d6d3d1;
+      }
+
+      /* Hero Showcase Card */
+      .showcase-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 1rem;
+        padding: 1rem;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+      }
+      .showcase-media {
+        position: relative;
+        aspect-ratio: 4 / 3;
+        border-radius: 0.75rem;
+        overflow: hidden;
+        cursor: pointer;
+        background: #1c1917;
+      }
+      .showcase-media img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease;
+      }
+      .showcase-media:hover img {
+        transform: scale(1.04);
+      }
+      .showcase-badge {
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        background: rgba(28, 25, 23, 0.85);
+        color: #fde68a;
+        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.375rem;
+        border: 1px solid rgba(255,255,255,0.1);
+      }
+      .showcase-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        padding: 1.25rem;
+        color: #ffffff;
+      }
+      .showcase-overlay h3 {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #fff;
+      }
+      .showcase-overlay p {
+        font-size: 0.75rem;
+        color: #d6d3d1;
+        margin-top: 0.25rem;
+      }
+      .bite-tracker {
+        margin-top: 1rem;
+        padding: 0.75rem;
+        background: #f5f5f4;
+        border-radius: 0.75rem;
+        border: 1px solid var(--border-color);
+        text-align: center;
+      }
+      .bite-counter-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        padding-bottom: 0.5rem;
+        border-bottom: 1px solid var(--border-color);
+      }
+      .bite-counter-num {
+        font-weight: 800;
+        font-size: 0.875rem;
+        color: var(--text-primary);
+      }
+      .bite-msg {
+        font-size: 0.75rem;
+        font-weight: 500;
+        font-style: italic;
+        color: var(--text-primary);
+        margin-top: 0.5rem;
+      }
+
+      /* Gallery */
+      .gallery-section {
+        padding: 5rem 0;
+      }
+      .section-header {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid var(--border-color);
+      }
+      @media (min-width: 768px) {
+        .section-header {
+          flex-direction: row;
+          align-items: flex-end;
+          justify-content: space-between;
+        }
+      }
+      .filter-tabs {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.35rem;
+        padding: 0.25rem;
+        background: #e7e5e4;
+        border-radius: 0.75rem;
+      }
+      .filter-tab {
+        padding: 0.4rem 0.85rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        border-radius: 0.5rem;
+        border: none;
+        background: transparent;
+        color: var(--text-secondary);
+        cursor: pointer;
+        transition: all 0.2s;
+      }
+      .filter-tab.active {
+        background: #ffffff;
+        color: var(--text-primary);
+        box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+      }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding-top: 2.5rem;
+      }
+      @media (min-width: 640px) {
+        .gallery-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (min-width: 1024px) {
+        .gallery-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      /* Donut Cards */
+      .donut-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 1rem;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        cursor: pointer;
+      }
+      .donut-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+      }
+      .donut-card-img {
+        position: relative;
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+        background: #e7e5e4;
+      }
+      .donut-card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: transform 0.4s ease;
+      }
+      .donut-card:hover .donut-card-img img {
+        transform: scale(1.05);
+      }
+      .card-tag {
+        position: absolute;
+        top: 0.75rem;
+        left: 0.75rem;
+        background: rgba(28, 25, 23, 0.75);
+        color: #ffffff;
+        font-size: 0.7rem;
+        padding: 0.25rem 0.5rem;
+        border-radius: 0.375rem;
+        backdrop-filter: blur(4px);
+      }
+      .like-btn {
+        position: absolute;
+        top: 0.75rem;
+        right: 0.75rem;
+        background: rgba(255, 255, 255, 0.9);
+        border: none;
+        border-radius: 9999px;
+        padding: 0.35rem 0.6rem;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.3rem;
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: #e11d48;
+        cursor: pointer;
+        transition: transform 0.15s;
+      }
+      .like-btn:active {
+        transform: scale(0.9);
+      }
+      .donut-card-body {
+        padding: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        justify-content: space-between;
+      }
+      .donut-card-title {
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: var(--text-primary);
+        margin-bottom: 0.5rem;
+      }
+      .donut-card:hover .donut-card-title {
+        color: var(--accent-dark);
+      }
+      .donut-card-desc {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-bottom: 1.25rem;
+      }
+      .donut-card-meta {
+        padding-top: 1rem;
+        border-top: 1px solid #f5f5f4;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        align-items: center;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+      }
+
+      /* Oracle Section */
+      .oracle-section {
+        padding: 5rem 0;
+        background: #f5f5f4;
+        border-top: 1px solid var(--border-color);
+        border-bottom: 1px solid var(--border-color);
+        text-align: center;
+      }
+      .oracle-title {
+        font-size: 2.25rem;
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+      }
+      .oracle-desc {
+        font-size: 1rem;
+        color: var(--text-secondary);
+        max-width: 580px;
+        margin: 0 auto 2rem;
+      }
+      .btn-oracle {
+        padding: 0.85rem 1.75rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        background: #fcd34d;
+        color: var(--text-primary);
+        border: none;
+        border-radius: 0.75rem;
+        cursor: pointer;
+        transition: all 0.2s;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      }
+      .btn-oracle:hover {
+        background: #fbbf24;
+      }
+      .btn-oracle:active {
+        transform: scale(0.96);
+      }
+      .oracle-box {
+        margin: 2rem auto 0;
+        max-width: 540px;
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 1rem;
+        padding: 1.75rem;
+        text-align: left;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      }
+      .oracle-header {
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        padding-bottom: 0.75rem;
+        border-bottom: 1px solid #f5f5f4;
+        color: var(--accent-dark);
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+      .oracle-h3 {
+        font-size: 1.5rem;
+        margin-top: 0.75rem;
+        font-weight: 700;
+      }
+      .oracle-quote {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        margin-top: 0.5rem;
+        line-height: 1.6;
+        font-style: italic;
+      }
+
+      /* Laws Section */
+      .laws-section {
+        padding: 5rem 0;
+      }
+      .laws-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.75rem;
+        margin-top: 3rem;
+      }
+      @media (min-width: 640px) {
+        .laws-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      .law-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border-color);
+        border-radius: 1rem;
+        padding: 2rem;
+      }
+      .law-num {
+        font-size: 2rem;
+        font-weight: 700;
+        color: #d6d3d1;
+      }
+      .law-title {
+        font-size: 1.125rem;
+        font-weight: 700;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
+      }
+      .law-desc {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+      }
+
+      /* Manifesto Section */
+      .manifesto-section {
+        padding: 5rem 0;
+        background: #1c1917;
+        color: #fafaf9;
+      }
+      .manifesto-kicker {
+        color: #fde68a;
+      }
+      .manifesto-title {
+        font-size: 2.25rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-top: 0.5rem;
+        margin-bottom: 1rem;
+      }
+      .manifesto-intro {
+        font-size: 0.95rem;
+        color: #a8a29e;
+        max-width: 650px;
+        line-height: 1.6;
+      }
+      .manifesto-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        margin-top: 3rem;
+      }
+      @media (min-width: 640px) {
+        .manifesto-grid {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+      @media (min-width: 1024px) {
+        .manifesto-grid {
+          grid-template-columns: repeat(4, 1fr);
+        }
+      }
+      .manifesto-card {
+        background: rgba(41, 37, 36, 0.7);
+        border: 1px solid rgba(87, 83, 78, 0.5);
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+      }
+      .manifesto-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 0.5rem;
+        background: rgba(239, 68, 68, 0.15);
+        color: #f87171;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        margin-bottom: 1rem;
+      }
+      .manifesto-icon.ok {
+        background: rgba(34, 197, 94, 0.15);
+        color: #4ade80;
+      }
+      .manifesto-card h4 {
+        font-size: 1rem;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 0.5rem;
+      }
+      .manifesto-card p {
+        font-size: 0.75rem;
+        color: #a8a29e;
+        line-height: 1.5;
+      }
+      .advice-banner {
+        margin-top: 3rem;
+        padding: 1.5rem;
+        background: rgba(41, 37, 36, 0.4);
+        border: 1px solid rgba(87, 83, 78, 0.4);
+        border-radius: 0.75rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      @media (min-width: 640px) {
+        .advice-banner {
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+        }
+      }
+      .advice-text {
+        font-size: 0.875rem;
+        color: #d6d3d1;
+      }
+
+      /* Modal */
+      .modal-backdrop {
+        position: fixed;
+        inset: 0;
+        z-index: 50;
+        background: rgba(28, 25, 23, 0.75);
+        backdrop-filter: blur(4px);
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+      }
+      .modal-backdrop.open {
+        display: flex;
+      }
+      .modal-window {
+        background: #ffffff;
+        border-radius: 1rem;
+        max-width: 640px;
+        width: 100%;
+        overflow: hidden;
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.2);
+        position: relative;
+        animation: modalIn 0.2s ease-out;
+      }
+      @keyframes modalIn {
+        from { opacity: 0; transform: scale(0.95); }
+        to { opacity: 1; transform: scale(1); }
+      }
+      .modal-close {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        background: rgba(28, 25, 23, 0.7);
+        color: #ffffff;
+        border: none;
+        width: 32px;
+        height: 32px;
+        border-radius: 9999px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+        z-index: 10;
+      }
+      .modal-img-wrap {
+        aspect-ratio: 16 / 9;
+        background: #1c1917;
+        overflow: hidden;
+        position: relative;
+      }
+      .modal-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .modal-content {
+        padding: 1.75rem;
+      }
+      .modal-title {
+        font-size: 1.75rem;
+        font-weight: 700;
+      }
+      .modal-vibe {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        color: var(--accent-dark);
+        margin-top: 0.25rem;
+      }
+      .modal-desc {
+        font-size: 0.875rem;
+        color: var(--text-secondary);
+        line-height: 1.6;
+        margin-top: 0.75rem;
+      }
+      .modal-fact {
+        margin-top: 1rem;
+        padding: 0.75rem 1rem;
+        background: #fef3c7;
+        border: 1px solid #fde68a;
+        border-radius: 0.75rem;
+        font-size: 0.75rem;
+        color: #78350f;
+      }
+      .modal-grid-meta {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid var(--border-color);
+        font-size: 0.75rem;
+      }
+      .modal-grid-meta span.label {
+        color: var(--text-muted);
+        display: block;
+      }
+      .modal-grid-meta span.val {
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      /* Footer */
+      footer {
+        padding: 2.5rem 0;
+        border-top: 1px solid var(--border-color);
+        background: #fafaf9;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+      }
+      .footer-content {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+        align-items: center;
+        justify-content: space-between;
+      }
+      @media (min-width: 640px) {
+        .footer-content {
+          flex-direction: row;
+        }
+      }
+    </style>
   </head>
-  <body class="bg-stone-50 text-stone-900 antialiased selection:bg-amber-200 selection:text-amber-900">
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
+
+  <body>
+    <!-- Real, Non-Empty, Standalone HTML Content inside #root -->
+    <div id="root">
+      
+      <!-- Header -->
+      <header class="topbar">
+        <div class="container topbar-content">
+          <a href="#" class="wordmark font-title">Пончикопедия</a>
+          
+          <nav class="nav-links">
+            <a href="#gallery">Экспонаты</a>
+            <a href="#oracle">Оракул Дня</a>
+            <a href="#laws">Законы Физики</a>
+            <a href="#manifesto">Манифест</a>
+          </nav>
+
+          <button id="btnRandomTop" class="btn-random">
+            <span>🍩 Случайный пончик</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Hero -->
+      <section class="hero">
+        <div class="container hero-grid">
+          <div>
+            <div class="kicker">Первый некоммерческий заповедник глазури</div>
+            <h1 class="hero-title font-title">
+              Пончики — это не еда. Это геометрическое совершенство.
+            </h1>
+            <p class="hero-desc">
+              Мы создали этот сайт без телефонов, без корзин покупок и без спам-рассылок. Только сочные фотографии высочайшего разрешения, абсурдная классификация и чистая радость созерцания дырки от бублика.
+            </p>
+            
+            <div class="meta-line">
+              <span>0% коммерции</span>
+              <span>·</span>
+              <span>100% углеводной поэзии</span>
+              <span>·</span>
+              <span>Без звонков оператора</span>
+              <span>·</span>
+              <span>Чистый дух HTML</span>
+            </div>
+
+            <div class="cta-buttons">
+              <a href="#gallery" class="btn-primary">Смотреть всю коллекцию</a>
+              <a href="#oracle" class="btn-secondary">Узнать свой пончик дня</a>
+            </div>
+          </div>
+
+          <!-- Hero Showcase Card -->
+          <div>
+            <div class="showcase-card">
+              <div id="heroCardMedia" class="showcase-media" title="Кликните, чтобы виртуально откусить!">
+                <img src="./images/hero_donut_galaxy_1791484934388.jpg" alt="Космический пончик Реликт №01" />
+                <span class="showcase-badge">✨ Кликни, чтобы «откусить»</span>
+                <div class="showcase-overlay">
+                  <h3 class="font-title">Космический Реликт №01</h3>
+                  <p>Замешан в невесомости, покрыт черничной звёздной глазурью.</p>
+                </div>
+              </div>
+
+              <div class="bite-tracker">
+                <div class="bite-counter-row">
+                  <span>Счётчик виртуальных укусов:</span>
+                  <span id="biteCounterNum" class="bite-counter-num">0</span>
+                </div>
+                <p id="biteMessage" class="bite-msg">Нажмите на космический пончик, чтобы сделать виртуальный укус!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery -->
+      <section id="gallery" class="gallery-section">
+        <div class="container">
+          
+          <div class="section-header">
+            <div>
+              <div class="kicker">Шуточная классификация</div>
+              <h2 class="font-title" style="font-size: 2.25rem;">Галерея Великих Экспонатов</h2>
+              <p style="color: var(--text-secondary); font-size: 0.875rem; margin-top: 0.5rem;">
+                Каждый экземпляр прошёл строгий визуальный контроль и готов радовать ваш взор.
+              </p>
+            </div>
+
+            <div class="filter-tabs">
+              <button class="filter-tab active" data-category="all">Все (8)</button>
+              <button class="filter-tab" data-category="classic">Классика</button>
+              <button class="filter-tab" data-category="drama">Драма</button>
+              <button class="filter-tab" data-category="gourmet">Высокая кухня</button>
+              <button class="filter-tab" data-category="cosmic">Космос</button>
+            </div>
+          </div>
+
+          <!-- Cards Grid -->
+          <div id="galleryGrid" class="gallery-grid">
+            
+            <!-- Card 1: Homer -->
+            <article class="donut-card" data-id="homer-pink" data-category="classic">
+              <div class="donut-card-img">
+                <img src="./images/donut_pink_homer_1791484944805.jpg" alt="Гомер-Классик" loading="lazy" />
+                <span class="card-tag">Эталон Спрингфилда 1989</span>
+                <button class="like-btn" data-card="homer-pink">❤️ <span class="like-num">342</span></button>
+              </div>
+              <div class="donut-card-body">
+                <div>
+                  <h3 class="donut-card-title font-title">Гомер-Классик</h3>
+                  <p class="donut-card-desc">
+                    Каноническая клубничная глазурь и россыпь радужной кондитерской посыпки. Вызывает протяжное «Ммм...» и полную капитуляцию силы воли.
+                  </p>
+                </div>
+                <div class="donut-card-meta">
+                  <span>Опасность: 11/10</span>
+                  <span>·</span>
+                  <span>Ностальгия: 100%</span>
+                  <span>·</span>
+                  <span>Дырка: Идеальный круг</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 2: Dark Choco -->
+            <article class="donut-card" data-id="dark-choco" data-category="drama">
+              <div class="donut-card-img">
+                <img src="./images/donut_dark_choco_1791484955628.jpg" alt="Тёмная Драма" loading="lazy" />
+                <span class="card-tag">Экзистенциальный Какао</span>
+                <button class="like-btn" data-card="dark-choco">❤️ <span class="like-num">289</span></button>
+              </div>
+              <div class="donut-card-body">
+                <div>
+                  <h3 class="donut-card-title font-title">Тёмная Драма</h3>
+                  <p class="donut-card-desc">
+                    Тройной тёмный шоколад с хлопьями морской соли. Создан для тех, кто слушает меланхоличную музыку под дождём.
+                  </p>
+                </div>
+                <div class="donut-card-meta">
+                  <span>Горькая правда: 85%</span>
+                  <span>·</span>
+                  <span>Морская соль: Вместо слёз</span>
+                  <span>·</span>
+                  <span>Сложность: Высокая</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 3: Cosmic Galaxy -->
+            <article class="donut-card" data-id="cosmic-galaxy" data-category="cosmic">
+              <div class="donut-card-img">
+                <img src="./images/hero_donut_galaxy_1791484934388.jpg" alt="Космическая Одиссея" loading="lazy" />
+                <span class="card-tag">Межгалактический Реликт</span>
+                <button class="like-btn" data-card="cosmic-galaxy">❤️ <span class="like-num">512</span></button>
+              </div>
+              <div class="donut-card-body">
+                <div>
+                  <h3 class="donut-card-title font-title">Космическая Одиссея</h3>
+                  <p class="donut-card-desc">
+                    Чернично-ежевичный космос с пищевой звёздной пылью. Согласно теории относительности, его дырка расширяется со скоростью Вселенной.
+                  </p>
+                </div>
+                <div class="donut-card-meta">
+                  <span>Гравитация: Непреодолимая</span>
+                  <span>·</span>
+                  <span>Млечный Путь</span>
+                  <span>·</span>
+                  <span>Энергия: Сверхновая</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 4: Matcha Zen -->
+            <article class="donut-card" data-id="matcha-zen" data-category="gourmet">
+              <div class="donut-card-img">
+                <img src="./images/donut_matcha_zen_1791484964887.jpg" alt="Дзен и Тишина" loading="lazy" />
+                <span class="card-tag">Медитативный Чай</span>
+                <button class="like-btn" data-card="matcha-zen">❤️ <span class="like-num">214</span></button>
+              </div>
+              <div class="donut-card-body">
+                <div>
+                  <h3 class="donut-card-title font-title">Дзен и Тишина</h3>
+                  <p class="donut-card-desc">
+                    Церемониальный чай матча и жареный черный кунжут. Этот пончик не осуждает вас за лишние калории — он принимает вас целиком.
+                  </p>
+                </div>
+                <div class="donut-card-meta">
+                  <span>Осознанность: Просветление</span>
+                  <span>·</span>
+                  <span>Шум в голове: 0%</span>
+                  <span>·</span>
+                  <span>Баланс: Инь и Ян</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 5: Caramel Crunch -->
+            <article class="donut-card" data-id="caramel-crunch" data-category="gourmet">
+              <div class="donut-card-img">
+                <img src="./images/donut_caramel_crunch_1791484973215.jpg" alt="Карамельный Архитектор" loading="lazy" />
+                <span class="card-tag">Конструкция с Пеканом</span>
+                <button class="like-btn" data-card="caramel-crunch">❤️ <span class="like-num">391</span></button>
+              </div>
+              <div class="donut-card-body">
+                <div>
+                  <h3 class="donut-card-title font-title">Карамельный Архитектор</h3>
+                  <p class="donut-card-desc">
+                    Тягучая солёная карамель, дроблёный пекан и маслянистый тоффи. Требует серьёзного инженерного подхода при откусывании.
+                  </p>
+                </div>
+                <div class="donut-card-meta">
+                  <span>Индекс хруста: 9.9/10</span>
+                  <span>·</span>
+                  <span>Липкость: Неизбежна</span>
+                  <span>·</span>
+                  <span>Удовлетворение: 100%</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 6: Lemon Meringue -->
+            <article class="donut-card" data-id="lemon-meringue" data-category="gourmet">
+              <div class="donut-card-img">
+                <img src="./images/donut_lemon_meringue_1791485010533.jpg" alt="Лимонный Барон" loading="lazy" />
+                <span class="card-tag">Королевское Безе</span>
+                <button class="like-btn" data-card="lemon-meringue">❤️ <span class="like-num">188</span></button>
+              </div>
+              <div class="donut-card-body">
+                <div>
+                  <h3 class="donut-card-title font-title">Лимонный Барон</h3>
+                  <p class="donut-card-desc">
+                    Обожжённые пики итальянской меренги, золотая пыльца и бодрящий лимонный курд. Выглядит как фамильная императорская корона.
+                  </p>
+                </div>
+                <div class="donut-card-meta">
+                  <span>Аристократизм: 99%</span>
+                  <span>·</span>
+                  <span>Кислинка: Отрезвляющая</span>
+                  <span>·</span>
+                  <span>Время жизни: 15 сек</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 7: Berliner -->
+            <article class="donut-card" data-id="berry-berliner" data-category="classic">
+              <div class="donut-card-img">
+                <img src="./images/donut_berry_berliner_1791485021999.jpg" alt="Тайный Берлинер" loading="lazy" />
+                <span class="card-tag">Скрытое Варенье</span>
+                <button class="like-btn" data-card="berry-berliner">❤️ <span class="like-num">405</span></button>
+              </div>
+              <div class="donut-card-body">
+                <div>
+                  <h3 class="donut-card-title font-title">Тайный Берлинер</h3>
+                  <p class="donut-card-desc">
+                    Пышный шарик в сахарной пудре с коварным джемом внутри. Первое правило: джем всегда стреляет на самую светлую одежду.
+                  </p>
+                </div>
+                <div class="donut-card-meta">
+                  <span>Риск для рубашки: 99.9%</span>
+                  <span>·</span>
+                  <span>Дырка: Запрещена</span>
+                  <span>·</span>
+                  <span>Малина: Взрывная</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Card 8: Cinnamon Old Fashioned -->
+            <article class="donut-card" data-id="cinnamon-crush" data-category="classic">
+              <div class="donut-card-img">
+                <img src="./images/donut_cinnamon_crush_1791485031483.jpg" alt="Старомодный Хруст" loading="lazy" />
+                <span class="card-tag">Ветеран на Твороге</span>
+                <button class="like-btn" data-card="cinnamon-crush">❤️ <span class="like-num">267</span></button>
+              </div>
+              <div class="donut-card-body">
+                <div>
+                  <h3 class="donut-card-title font-title">Старомодный Хруст</h3>
+                  <p class="donut-card-desc">
+                    Растрескавшийся олд-фэшн с коричной глазурью. Он помнит те времена, когда пончики продавались по 5 копеек, и не признаёт суету.
+                  </p>
+                </div>
+                <div class="donut-card-meta">
+                  <span>Текстура: Горный хребет</span>
+                  <span>·</span>
+                  <span>Характер: Нордический</span>
+                  <span>·</span>
+                  <span>Мудрость: ∞</span>
+                </div>
+              </div>
+            </article>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Oracle Section -->
+      <section id="oracle" class="oracle-section">
+        <div class="container">
+          <div class="kicker">Интерактивный Пончиковый Оракул</div>
+          <h2 class="oracle-title font-title">Какой ты сегодня пончик?</h2>
+          <p class="oracle-desc">
+            Забудьте гороскопы и натальные карты. Единственное, что определяет судьбу человека в течение дня — это его внутренняя глазурь.
+          </p>
+          <button id="btnRollOracle" class="btn-oracle">✨ Вытянуть пончик судьбы</button>
+
+          <div id="oracleResultBox" class="oracle-box" style="display: none;">
+            <div class="oracle-header">
+              <span id="oracleDonutName">Ваш тотемный десерт</span>
+              <span>Точность: 100%</span>
+            </div>
+            <h3 id="oracleTitle" class="oracle-h3 font-title">День розовой стабильности</h3>
+            <p id="oracleQuote" class="oracle-quote">«Сегодня все проблемы решаются чашкой чая и хорошей выпечкой.»</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Laws of Donut Physics -->
+      <section id="laws" class="laws-section">
+        <div class="container">
+          <div style="text-align: center; max-width: 600px; margin: 0 auto;">
+            <div class="kicker">Фундаментальная кондитерская наука</div>
+            <h2 class="font-title" style="font-size: 2.25rem;">Законы Пончиковой Физики</h2>
+            <p style="color: var(--text-secondary); font-size: 0.875rem; margin-top: 0.5rem;">
+              Четыре неоспоримых правила Вселенной, выведенные поколениями любителей чаепитий.
+            </p>
+          </div>
+
+          <div class="laws-grid">
+            <div class="law-card">
+              <div class="law-num font-title">01</div>
+              <h3 class="law-title font-title">Закон Сохранения Дырки</h3>
+              <p class="law-desc">
+                Если убрать из пончика дырку, он необратимо деградирует до состояния обычного пирожка. А пирожок не способен так гордо смотреть в вечность.
+              </p>
+            </div>
+
+            <div class="law-card">
+              <div class="law-num font-title">02</div>
+              <h3 class="law-title font-title">Теорема Падающей Глазури</h3>
+              <p class="law-desc">
+                Количество упавшей глазури прямо пропорционально важности документа или чистоте брюк, над которыми совершается укус.
+              </p>
+            </div>
+
+            <div class="law-card">
+              <div class="law-num font-title">03</div>
+              <h3 class="law-title font-title">Парадокс Дюжины</h3>
+              <p class="law-desc">
+                Один пончик — это мало. Два пончика — это компромисс. Коробка из двенадцати пончиков — это уже взвешенная философская позиция.
+              </p>
+            </div>
+
+            <div class="law-card">
+              <div class="law-num font-title">04</div>
+              <h3 class="law-title font-title">Квантовая Нулевая Калорийность</h3>
+              <p class="law-desc">
+                Пончик, съеденный тайно на кухне в темноте при свете холодильника, не фиксируется внешними наблюдателями и не существует в таблице калорий.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Manifesto Section -->
+      <section id="manifesto" class="manifesto-section">
+        <div class="container">
+          <div class="kicker manifesto-kicker">Честный Манифест Свободы</div>
+          <h2 class="manifesto-title font-title">Почему у нас нет телефонов, почты и форм заказа?</h2>
+          <p class="manifesto-intro">
+            Этот сайт задуман как шуточный оазис посреди бесконечных интернет-магазинов. Мы сознательно освободили вас от всего лишнего:
+          </p>
+
+          <div class="manifesto-grid">
+            <div class="manifesto-card">
+              <div class="manifesto-icon">✕</div>
+              <h4>Никаких звонков</h4>
+              <p>Наши специалисты постоянно заняты жеванием пончиков, поэтому всё равно не смогут связно ответить в трубку.</p>
+            </div>
+
+            <div class="manifesto-card">
+              <div class="manifesto-icon">✕</div>
+              <h4>Никаких email</h4>
+              <p>Ваш ящик и так перегружен письмами с рекламой. Пончикопедия ценит ваше спокойствие и свободное время.</p>
+            </div>
+
+            <div class="manifesto-card">
+              <div class="manifesto-icon">✕</div>
+              <h4>Никаких корзин</h4>
+              <p>Пончики нельзя купить через сервер — их нужно брать тёплыми в ближайшей уютной пекарне за углом вашего дома.</p>
+            </div>
+
+            <div class="manifesto-card">
+              <div class="manifesto-icon ok">✓</div>
+              <h4>100% Улыбок</h4>
+              <p>Просто полистайте фото, покажите другу, поднимите себе настроение и, возможно, сходите выпить чашку хорошего чая.</p>
+            </div>
+          </div>
+
+          <div class="advice-banner">
+            <span class="advice-text">
+              ☕ Совет дня: Закройте этот сайт на 15 минут, пройдитесь до соседней булочной и съешьте настоящий пончик!
+            </span>
+            <a href="#gallery" class="btn-primary" style="background: #fcd34d; color: #1c1917; font-size: 0.75rem;">
+              Вернуться к фото
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        <div class="container footer-content">
+          <div>
+            <strong style="color: var(--text-primary); font-size: 0.875rem;" class="font-title">Пончикопедия</strong>
+            <span>© 2026. Самый некоммерческий сайт в истории интернета.</span>
+          </div>
+          <div>
+            <span>Никаких cookies, номеров и форм · Сделано с любовью к тесту и глазури 🍩</span>
+          </div>
+        </div>
+      </footer>
+
+      <!-- Modal Popup -->
+      <div id="donutModal" class="modal-backdrop">
+        <div class="modal-window">
+          <button id="modalCloseBtn" class="modal-close" title="Закрыть">✕</button>
+          <div class="modal-img-wrap">
+            <img id="modalImg" src="" alt="Детали пончика" />
+          </div>
+          <div class="modal-content">
+            <h3 id="modalTitle" class="modal-title font-title"></h3>
+            <div id="modalVibe" class="modal-vibe"></div>
+            <p id="modalDesc" class="modal-desc"></p>
+            <div id="modalFact" class="modal-fact"></div>
+            
+            <div class="modal-grid-meta">
+              <div>
+                <span class="label">Статус дырки:</span>
+                <span id="modalHole" class="val"></span>
+              </div>
+              <div>
+                <span class="label">Уровень опасности:</span>
+                <span id="modalDanger" class="val"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Standalone Vanilla Interactive Script (Runs Everywhere Without Any Build Step) -->
+    <script>
+      (function() {
+        const DONUTS_DATA = {
+          'homer-pink': {
+            name: 'Гомер-Классик',
+            vibe: 'Чистая детская радость без капли раскаяния',
+            img: './images/donut_pink_homer_1791484944805.jpg',
+            desc: 'Золотой стандарт мировой пончиковой индустрии. Создан для людей, которые не хотят усложнять жизнь экзотическими начинками. Если долго смотреть на этот пончик, можно услышать голос Гомера Симпсона.',
+            fact: 'Каждая посыпка расположена в строгом хаотическом порядке, одобренном Международным институтом сахара.',
+            hole: 'Каноническая пустота',
+            danger: 'Критическая для белых скатертей'
+          },
+          'dark-choco': {
+            name: 'Тёмная Драма',
+            vibe: 'Достоевский на утреннем кофе-брейке',
+            img: './images/donut_dark_choco_1791484955628.jpg',
+            desc: 'Этот пончик познал всю бренность бытия. Он не пытается вам понравиться — вы сами должны дорасти до его глубокого горького ганаша. Морская соль добавлена, чтобы напомнить: жизнь — это сочетание слёз и какао.',
+            fact: 'Идеально сочетается с чтением экзистенциалистов и взглядом в никуда.',
+            hole: 'Чёрная дыра поглощения калорий',
+            danger: 'Тяжелый вздох после каждого укуса'
+          },
+          'cosmic-galaxy': {
+            name: 'Космическая Одиссея',
+            vibe: 'Полет к дальним рубежам галактики без скафандра',
+            img: './images/hero_donut_galaxy_1791484934388.jpg',
+            desc: 'Замешан в условиях микрогравитации. Глазурь напоминает снимок телескопа Джеймс Уэбб. Астрономы утверждают, что в центре этого пончика искривляется пространственно-временной континуум сладкоежек.',
+            fact: 'Звёздочки на глазури съедобны, хотя некоторые астрофизики предлагали занести их в каталог небесных тел.',
+            hole: 'Квантовая червоточина',
+            danger: 'Затягивает в сингулярность'
+          },
+          'matcha-zen': {
+            name: 'Дзен и Тишина',
+            vibe: 'Шелест бамбука и безмятежное чаепитие',
+            img: './images/donut_matcha_zen_1791484964887.jpg',
+            desc: 'Если бы тибетские монахи готовили выпечку во фритюре, она выглядела бы именно так. Спокойная травянистая горчинка матчи нейтрализует угрызения совести на ментальном уровне.',
+            fact: 'Кунжутинки на глазури выложены по законам японского сада камней.',
+            hole: 'Окно во внутреннюю тишину',
+            danger: 'Риск забыть, что пора на работу'
+          },
+          'caramel-crunch': {
+            name: 'Карамельный Архитектор',
+            vibe: 'Уверенность в завтрашнем дне и прочные перекрытия',
+            img: './images/donut_caramel_crunch_1791484973215.jpg',
+            desc: 'Сложнейший структурный объект в кондитерском мире. Неправильный угол атаки зубами может привести к обрушению орехового перекрытия. Рекомендуется есть в строительной каске или с салфетками.',
+            fact: 'По шкале хруста Мооса твёрдость карамельной корочки превосходит полевой шпат.',
+            hole: 'Технологическое отверстие для циркуляции пара',
+            danger: 'Карамель склеивает челюсть при попытке пожаловаться'
+          },
+          'lemon-meringue': {
+            name: 'Лимонный Барон',
+            vibe: 'Приём в Версале, но в домашних тапочках',
+            img: './images/donut_lemon_meringue_1791485010533.jpg',
+            desc: 'Аристократ среди пончиков. При взгляде на него хочется расправить плечи, выпрямить спину и потребовать серебряную десертную вилочку. Правда, через минуту вы всё равно будете слизывать меренгу с пальцев.',
+            fact: 'Меренга обжигается газовой горелкой с температурой, способной растопить даже самое чёрствое сердце.',
+            hole: 'Скрыта под королевской мантией',
+            danger: 'Взбитые белки остаются на кончике носа'
+          },
+          'berry-berliner': {
+            name: 'Тайный Берлинер',
+            vibe: 'Опасная спецоперация за завтраком',
+            img: './images/donut_berry_berliner_1791485021999.jpg',
+            desc: 'Загадочный агент без дырки. Весь его смысл заключён в центре давления. Как только вы делаете неосторожный укус с севера, ягодная начинка вероломно прорывает оборону на юге.',
+            fact: 'Сахарная пудра на этом пончике летучее гелия: вдохните рядом, и вы станете похожи на кондитера-стажёра.',
+            hole: 'Заполнена до отказа',
+            danger: 'Химчистка уже готовит счёт'
+          },
+          'cinnamon-crush': {
+            name: 'Старомодный Хруст',
+            vibe: 'Утренний туман, дровяная печь и старые пластинки',
+            img: './images/donut_cinnamon_crush_1791485031483.jpg',
+            desc: 'Суровый, рельефный и неподкупный. Он не признаёт современный маркетинг, посыпки цвета единорога и фисташковую пасту. Ему нужен только крутой кипяток или крепкий черный кофе без сахара.',
+            fact: 'Трещины на его поверхности в точности повторяют карту каньонов штата Юта.',
+            hole: 'Неровная, высеченная ветрами времени',
+            danger: 'Хруст слышен соседям через две стены'
+          }
+        };
+
+        const ORACLE_PREDICTIONS = [
+          { donut: 'Гомер-Классик', title: 'День розовой стабильности', quote: 'Сегодня все сложные проблемы решаются фразой «я подумаю об этом после перекуса». Не пытайтесь быть сложнее, чем вы есть.' },
+          { donut: 'Тёмная Драма', title: 'День глубокого вздоха', quote: 'Сегодня идеально надеть черное, налить крепкий кофе и смотреть в окно с выражением человека, познавшего тайны Вселенной.' },
+          { donut: 'Космическая Одиссея', title: 'День расширения горизонтов', quote: 'Ваша продуктивность сегодня движется со скоростью света, но строго по круговой орбите вокруг холодильника.' },
+          { donut: 'Дзен и Тишина', title: 'День умиротворения', quote: 'Если кто-то на работе пытается вас вывести из себя — представьте, что они просто не ели матча-пончик.' },
+          { donut: 'Карамельный Архитектор', title: 'День масштабных планов', quote: 'Конструкция ваших планов на сегодня держится исключительно на силе воли и липкой карамели. И этого вполне достаточно!' },
+          { donut: 'Лимонный Барон', title: 'День королевских манер', quote: 'Вы сегодня выглядите роскошно, даже если сидите перед монитором в пижаме. Держите осанку!' },
+          { donut: 'Тайный Берлинер', title: 'День неожиданных сюрпризов', quote: 'Сегодня судьба готовит для вас яркую начинку. Главное — не заляпать белую рубашку.' },
+          { donut: 'Старомодный Хруст', title: 'День непоколебимого опыта', quote: 'Никакие новые тренды не собьют вас с толку. Хрустите уверенно и не обращайте внимания на суету.' }
+        ];
+
+        // Bite counter
+        let bites = 0;
+        const biteCard = document.getElementById('heroCardMedia');
+        const biteNum = document.getElementById('biteCounterNum');
+        const biteMsg = document.getElementById('biteMessage');
+        const reactions = [
+          'Хрусть! Первая молекула глазури благополучно усвоена.',
+          'Осторожно! Дырка от пончика расширилась ещё на 4.2%.',
+          'Внимание: зарегистрирован прилив чистого эндорфина.',
+          'Гравитационное поле пончика временно стабилизировалось.',
+          'Ученые подтверждают: виртуальные калории равны нулю!',
+          'Вы вошли в режим дзен-поглощения сладостей.',
+          'Тесто было настолько воздушным, что улетело в стратосферу.',
+          'Браво! Этот виртуальный укус войдет в анналы науки.'
+        ];
+
+        if (biteCard) {
+          biteCard.addEventListener('click', function() {
+            bites++;
+            if (biteNum) biteNum.textContent = bites;
+            if (biteMsg) biteMsg.textContent = '«' + reactions[bites % reactions.length] + '»';
+          });
+        }
+
+        // Category filter
+        const tabs = document.querySelectorAll('.filter-tab');
+        const cards = document.querySelectorAll('.donut-card');
+        tabs.forEach(function(tab) {
+          tab.addEventListener('click', function() {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            const cat = tab.getAttribute('data-category');
+            cards.forEach(function(c) {
+              if (cat === 'all' || c.getAttribute('data-category') === cat) {
+                c.style.display = 'flex';
+              } else {
+                c.style.display = 'none';
+              }
+            });
+          });
+        });
+
+        // Modal opening
+        const modal = document.getElementById('donutModal');
+        const modalImg = document.getElementById('modalImg');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalVibe = document.getElementById('modalVibe');
+        const modalDesc = document.getElementById('modalDesc');
+        const modalFact = document.getElementById('modalFact');
+        const modalHole = document.getElementById('modalHole');
+        const modalDanger = document.getElementById('modalDanger');
+        const modalClose = document.getElementById('modalCloseBtn');
+
+        function openModalForDonut(id) {
+          const item = DONUTS_DATA[id];
+          if (!item || !modal) return;
+          modalImg.src = item.img;
+          modalTitle.textContent = item.name;
+          modalVibe.textContent = 'Вайб: ' + item.vibe;
+          modalDesc.textContent = item.desc;
+          modalFact.innerHTML = '<strong>Любопытный факт: </strong>' + item.fact;
+          modalHole.textContent = item.hole;
+          modalDanger.textContent = item.danger;
+          modal.classList.add('open');
+        }
+
+        cards.forEach(function(card) {
+          card.addEventListener('click', function() {
+            const id = card.getAttribute('data-id');
+            openModalForDonut(id);
+          });
+        });
+
+        if (modalClose) {
+          modalClose.addEventListener('click', function() {
+            modal.classList.remove('open');
+          });
+        }
+        if (modal) {
+          modal.addEventListener('click', function(e) {
+            if (e.target === modal) modal.classList.remove('open');
+          });
+        }
+
+        // Random Donut
+        const btnRandom = document.getElementById('btnRandomTop');
+        if (btnRandom) {
+          btnRandom.addEventListener('click', function() {
+            const keys = Object.keys(DONUTS_DATA);
+            const randKey = keys[Math.floor(Math.random() * keys.length)];
+            openModalForDonut(randKey);
+          });
+        }
+
+        // Oracle Roll
+        const btnRoll = document.getElementById('btnRollOracle');
+        const oracleBox = document.getElementById('oracleResultBox');
+        const oracleDonutName = document.getElementById('oracleDonutName');
+        const oracleTitle = document.getElementById('oracleTitle');
+        const oracleQuote = document.getElementById('oracleQuote');
+
+        if (btnRoll) {
+          btnRoll.addEventListener('click', function() {
+            const rand = ORACLE_PREDICTIONS[Math.floor(Math.random() * ORACLE_PREDICTIONS.length)];
+            if (oracleDonutName) oracleDonutName.textContent = 'Ваш тотемный десерт: ' + rand.donut;
+            if (oracleTitle) oracleTitle.textContent = rand.title;
+            if (oracleQuote) oracleQuote.textContent = '«' + rand.quote + '»';
+            if (oracleBox) oracleBox.style.display = 'block';
+          });
+        }
+
+        // Like Buttons
+        const likeBtns = document.querySelectorAll('.like-btn');
+        likeBtns.forEach(function(btn) {
+          btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            const numSpan = btn.querySelector('.like-num');
+            if (numSpan) {
+              let count = parseInt(numSpan.textContent, 10) || 0;
+              numSpan.textContent = count + 1;
+            }
+          });
+        });
+
+      })();
+    </script>
   </body>
 </html>
-
