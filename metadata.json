@@ -1,0 +1,6 @@
+{
+  "name": "Пончикопедия",
+  "description": "Шуточная энциклопедия идеальных пончиков: сочные фото, абсурдная классификация и чистая радость без коммерции.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
